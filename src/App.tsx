@@ -315,34 +315,7 @@ const CodeWandWebsite = () => {
       transition: 'all 0.3s ease',
       fontSize: '1rem'
     },
-    globalStyles: `
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      
-      body {
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-      }
-      
-      @keyframes gradientShift {
-        0%, 100% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-      }
-      
-      @keyframes float {
-        0%, 100% { transform: translateY(0px) rotate(0deg); }
-        50% { transform: translateY(-20px) rotate(180deg); }
-      }
-      
-      @keyframes pulse {
-        0%, 100% { opacity: 0.3; }
-        50% { opacity: 0.6; }
-      }
-    `
+
   };
 
   const features = [
@@ -420,9 +393,41 @@ const CodeWandWebsite = () => {
     }
   ];
 
+  // Global styles component
+  const GlobalStyles = () => (
+    <style>{`
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+      
+      @keyframes gradientShift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
+      
+      @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-20px) rotate(180deg); }
+      }
+      
+      @keyframes pulse {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 0.6; }
+      }
+    `}</style>
+  );
+
   return (
     <>
-      <style>{styles.globalStyles}</style>
+      <GlobalStyles />
       <div style={styles.container}>
         {/* Background Effects */}
         <div style={styles.backgroundElements}></div>
@@ -555,8 +560,19 @@ const CodeWandWebsite = () => {
         </section>
 
         {/* How It Works Section */}
-        <section style={{...styles.section, background: 'rgba(0, 0, 0, 0.2)', backdropFilter: 'blur(10px)'}}>
-          <h2 style={{...styles.sectionTitle, background: 'linear-gradient(135deg, #45b7d1, #96ceb4, #ffeaa7)', backgroundSize: '200% 200%', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>
+        <section style={{
+          ...styles.section, 
+          background: 'rgba(0, 0, 0, 0.2)', 
+          backdropFilter: 'blur(10px)'
+        }}>
+          <h2 style={{
+            ...styles.sectionTitle, 
+            background: 'linear-gradient(135deg, #45b7d1, #96ceb4, #ffeaa7)', 
+            backgroundSize: '200% 200%', 
+            WebkitBackgroundClip: 'text', 
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text'
+          }}>
             How It Works
           </h2>
           <div style={styles.stepsGrid}>
@@ -571,7 +587,12 @@ const CodeWandWebsite = () => {
         </section>
 
         {/* CTA Section */}
-        <section style={{...styles.section, background: 'linear-gradient(135deg, rgba(255, 107, 107, 0.15), rgba(78, 205, 196, 0.15))', textAlign: 'center', backdropFilter: 'blur(10px)'}}>
+        <section style={{
+          ...styles.section, 
+          background: 'linear-gradient(135deg, rgba(255, 107, 107, 0.15), rgba(78, 205, 196, 0.15))', 
+          textAlign: 'center', 
+          backdropFilter: 'blur(10px)'
+        }}>
           <h2 style={styles.sectionTitle}>Ready to Start Creating?</h2>
           <p style={{...styles.heroSubtitle, fontSize: '1.4rem', marginBottom: '3rem'}}>
             Join thousands of makers, students, and developers who are building the future with CodeWand.
