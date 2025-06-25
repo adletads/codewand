@@ -425,6 +425,18 @@ const CodeWandWebsite = () => {
     `}</style>
   );
 
+  // Handler functions for button actions
+  const handleScrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleWatchDemo = () => {
+    window.open('https://www.youtube.com/watch?v=FbZnldJe0XU', '_blank'); // Replace with your demo link
+  };
+
   return (
     <>
       <GlobalStyles />
@@ -500,6 +512,7 @@ const CodeWandWebsite = () => {
             <div style={styles.buttonContainer}>
               <button 
                 style={{...styles.button, ...styles.buttonPrimary}}
+                onClick={() => handleScrollTo('features')}
                 onMouseOver={(e: React.MouseEvent<HTMLButtonElement>) => {
                   e.currentTarget.style.transform = 'translateY(-5px) scale(1.05)';
                   e.currentTarget.style.boxShadow = '0 15px 40px rgba(78, 205, 196, 0.4)';
@@ -513,6 +526,7 @@ const CodeWandWebsite = () => {
               </button>
               <button 
                 style={{...styles.button, ...styles.buttonSecondary}}
+                onClick={handleWatchDemo}
                 onMouseOver={(e: React.MouseEvent<HTMLButtonElement>) => {
                   e.currentTarget.style.transform = 'translateY(-5px) scale(1.05)';
                   e.currentTarget.style.borderColor = '#4ecdc4';
@@ -533,7 +547,7 @@ const CodeWandWebsite = () => {
         </section>
 
         {/* Features Section */}
-        <section style={styles.section}>
+        <section id="features" style={styles.section}>
           <h2 style={styles.sectionTitle}>Powerful Features</h2>
           <div style={styles.featuresGrid}>
             {features.map((feature, index) => (
@@ -587,7 +601,7 @@ const CodeWandWebsite = () => {
         </section>
 
         {/* CTA Section */}
-        <section style={{
+        <section id="pricing" style={{
           ...styles.section, 
           background: 'linear-gradient(135deg, rgba(255, 107, 107, 0.15), rgba(78, 205, 196, 0.15))', 
           textAlign: 'center', 
@@ -600,6 +614,7 @@ const CodeWandWebsite = () => {
           <div style={styles.buttonContainer}>
             <button 
               style={{...styles.button, ...styles.buttonPrimary}}
+              onClick={() => handleScrollTo('features')}
               onMouseOver={(e: React.MouseEvent<HTMLButtonElement>) => {
                 e.currentTarget.style.transform = 'translateY(-5px) scale(1.05)';
                 e.currentTarget.style.boxShadow = '0 15px 40px rgba(78, 205, 196, 0.4)';
@@ -613,6 +628,7 @@ const CodeWandWebsite = () => {
             </button>
             <button 
               style={{...styles.button, ...styles.buttonSecondary}}
+              onClick={() => handleScrollTo('pricing')}
               onMouseOver={(e: React.MouseEvent<HTMLButtonElement>) => {
                 e.currentTarget.style.transform = 'translateY(-5px) scale(1.05)';
                 e.currentTarget.style.borderColor = '#4ecdc4';
